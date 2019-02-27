@@ -5,19 +5,18 @@ namespace GradeBook.Tests
 {    
     public class TypeTests
     {    
-
         [Fact]
-        public void Test1()
+        public void ValueTypesAlsoPassByValue()
         {
             var x = GetInt();
-            SetInt(x);
+            SetInt(ref x);
 
-            Assert.Equal(3, x);
+            Assert.Equal(42, x);
         }
 
-        private void SetInt(int x)
+        private void SetInt(ref Int32 z)
         {
-            x = 42;
+            z = 42;
         }
 
         private int GetInt()
@@ -65,6 +64,21 @@ namespace GradeBook.Tests
         private void SetName(Book book, string name)
         {
             book.Name = name;
+        }
+
+        [Fact]
+        public void StringsBehaveLikeValueTypes()
+        {
+            string name = "Scott";
+            var upper = MakeUppercase(name);
+
+            Assert.Equal("Scott", name);
+            Assert.Equal("SCOTT", upper);
+        }
+
+        private string MakeUppercase(string parameter)
+        {
+            return parameter.ToUpper();
         }
 
         [Fact]
