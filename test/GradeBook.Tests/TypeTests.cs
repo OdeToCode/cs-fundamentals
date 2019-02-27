@@ -5,13 +5,27 @@ namespace GradeBook.Tests
 {    
     public class TypeTests
     {
+         [Fact]
+        public void CSharpIsPassByValue()
+        {
+            var book1 = GetBook("Book 1");
+            GetBookSetName(book1, "New Name");
+
+            Assert.Equal("Book 1", book1.Name);            
+        }
+
+        private void GetBookSetName(Book book, string name)
+        {
+            book = new Book(name);
+        }
+
         [Fact]
-        public void Test1()
+        public void CanSetNameFromReference()
         {
             var book1 = GetBook("Book 1");
             SetName(book1, "New Name");
 
-            Assert.Equal("Book 1", book1.Name);            
+            Assert.Equal("New Name", book1.Name);            
         }
 
         private void SetName(Book book, string name)
