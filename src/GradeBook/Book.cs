@@ -33,7 +33,7 @@ namespace GradeBook
                 
             }        
         }
-
+ 
         public void AddGrade(double grade)
         {            
             if(grade <= 100 && grade >= 0)
@@ -96,7 +96,7 @@ namespace GradeBook
         public string Name
         {
             get; 
-            private set;            
+            set;            
         }
 
         public const string CATEGORY = "Science";
