@@ -22,7 +22,7 @@ namespace GradeBook
                 try
                 {
                     var grade = double.Parse(input);
-                    book.AddGrade(grade);                    
+                    book.AddGrade(grade); 
                 }
                 catch(ArgumentException ex)
                 {
