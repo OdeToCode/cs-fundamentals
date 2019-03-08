@@ -19,28 +19,13 @@ namespace GradeBook
         }
     }
 
-    public interface IBook
-    {
-        void AddGrade(double grade);
-        event GradeAddedDelegate GradeAdded;
-        Statistics GetStatistics();
-        string Name { get; }
-    }
-
-    public abstract class Book : NamedObject, IBook
+    public abstract class Book : NamedObject
     {
         public Book(string name) : base(name)
         {
         }
 
-        public event GradeAddedDelegate GradeAdded;
-
         public abstract void AddGrade(double grade);
-
-        public Statistics GetStatistics()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class InMemoryBook : Book
@@ -50,30 +35,7 @@ namespace GradeBook
             grades = new List<double>();
             Name = name;
         }
-
-        public void AddGrade(char letter)
-        {
-            switch(letter)
-            {
-                case 'A':
-                    AddGrade(90);
-                    break;
-
-                case 'B':
-                    AddGrade(80);
-                    break;
-
-                case 'C':
-                    AddGrade(70);
-                    break;
-
-                default:
-                    AddGrade(0);
-                    break;
-                
-            }        
-        }
- 
+         
         public override void AddGrade(double grade)
         {            
             if(grade <= 100 && grade >= 0)
@@ -128,10 +90,7 @@ namespace GradeBook
 
                 default:
                     result.Letter = 'F';
-                    break;
-                                    
-                
-                
+                    break;                                                                
             }
 
             return result;
