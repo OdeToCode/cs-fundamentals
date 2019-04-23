@@ -1,39 +1,24 @@
 ﻿using System;
+using Core;
 
 namespace Employees
 {
     class Program
     {
-        static int Main(string[] args)
+        static void Main(string[] args)
         {
-            var name = "Default";
+            var greetingService = new GreetingService();
+            var redGreetingService = new RedGreetingService();
+            var employee = new Employee(1, "Scott", greetingService);
+            var customer = new Customer("Allen", redGreetingService);
 
-            if (args.Length > 0)
-            {
-                name = args[0];
-            }
-
-            SayHello(name);
-
-            return 1;
+            Speak(employee);
+            Speak(customer);
         }
 
-        private static void SayHello(string name)
+        static void Speak(Human human)
         {
-            var hour = DateTime.UtcNow.Hour;
-
-            if (hour < 12)
-            {
-                Console.WriteLine($"Good morning, {name}!");
-            }
-            else if (hour <= 17)
-            {
-                Console.WriteLine($"Good afternoon, {name}!");
-            }
-            else
-            {
-                Console.WriteLine($"Good evening {name}!");
-            }
+            human.SayHello();
         }
     }
 }
