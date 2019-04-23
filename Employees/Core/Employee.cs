@@ -67,6 +67,10 @@ namespace Core
                 {
                     _name = value;
                 }
+                else
+                {
+                    throw new ArgumentException(nameof(value));
+                }
             }
             get
             {
