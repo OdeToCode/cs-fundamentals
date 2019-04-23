@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.IO;
 
 namespace Core
 { 
@@ -8,12 +9,32 @@ namespace Core
         void SayGreeting(string greeting);
     }
 
+    public class FileGreetingService : IGreetingService
+    {
+        private readonly string fileName;
+
+        public FileGreetingService(string fileName)
+        {
+            this.fileName = fileName;
+        }
+
+        public void SayGreeting(string greeting)
+        {
+            using (var writer = File.AppendText(fileName))
+            {
+                writer.WriteLine(greeting);
+            }
+        }
+    }
+
     public class RedGreetingService : IGreetingService
     {
         public void SayGreeting(string greeting)
         {
+            
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(greeting);
+            Console.ResetColor();
         }
     }
 
@@ -62,8 +83,6 @@ namespace Core
 
     public class Employee : Human
     {
-
-
         public Employee(int id, string name, 
                 IGreetingService greetingService)
             : base(name, greetingService)

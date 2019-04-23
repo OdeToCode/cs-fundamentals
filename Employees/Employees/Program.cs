@@ -9,8 +9,9 @@ namespace Employees
         {
             var greetingService = new GreetingService();
             var redGreetingService = new RedGreetingService();
-            var employee = new Employee(1, "Scott", greetingService);
-            var customer = new Customer("Allen", redGreetingService);
+            var fileGreetingService = new FileGreetingService("output.txt");
+            var employee = new Employee(1, "Scott", fileGreetingService);
+            var customer = new Customer("Allen", fileGreetingService);
 
             Speak(employee);
             Speak(customer);
