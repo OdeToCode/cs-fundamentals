@@ -7,7 +7,8 @@ namespace Employees.Web.Services
         IEnumerable<Employee> GetAll();
         Employee Get(int id);
         Employee Add(Employee newEmployee);
-        Employee Update(Employee updatedEmployee);
+        Employee Update(int id, Employee updatedEmployee);
         Employee Delete(int id);
+        int Commit();
     }
 }

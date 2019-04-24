@@ -18,12 +18,9 @@ namespace Employees.Web.Services
 
         public Employee Add(Employee newEmployee)
         {
-            throw new NotImplementedException();
-        }
-
-        public Employee Delete(int id)
-        {
-            throw new NotImplementedException();
+            newEmployee.ID = employees.Max(e => e.ID) + 1;
+            employees.Add(newEmployee);
+            return newEmployee;
         }
 
         public IEnumerable<Employee> GetAll()
@@ -36,9 +33,33 @@ namespace Employees.Web.Services
             return employees.SingleOrDefault(e => e.ID == id);                            
         }
 
-        public Employee Update(Employee updatedEmployee)
+        public Employee Delete(int id)
         {
-            throw new NotImplementedException();
+            var employee = employees.SingleOrDefault(e => e.ID == id);
+
+            if (employee != null)
+            {
+                employees.Remove(employee);
+            }
+            return employee;
+        }
+
+        public Employee Update(int id, Employee updatedEmployee)
+        {
+            var employee = employees.SingleOrDefault(e => e.ID == id);
+            if (employee != null)
+            {
+                employee.ID = id;
+                employee.LastName = updatedEmployee.LastName;
+                employee.FirstName = updatedEmployee.FirstName;
+                employee.HireDate = updatedEmployee.HireDate;
+            }
+            return employee;
+        }
+
+        public int Commit()
+        {
+            return 1;
         }
     }
 }
