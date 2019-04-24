@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Employees.Web.Services;
+using Microsoft.Extensions.Logging;
 
 namespace Employees.Web.API
 {
@@ -13,17 +14,23 @@ namespace Employees.Web.API
     [ApiController]
     public class GreetingController : ControllerBase
     {
+        private readonly ILogger<GreetingController> logger;
         private readonly IGreetingService greetingService;
 
-        public GreetingController(IGreetingService greetingService)
+        public GreetingController(
+            ILogger<GreetingController> logger,
+            IGreetingService greetingService)
         {
+            this.logger = logger;
             this.greetingService = greetingService;
         }
 
         [HttpGet]
-        public string Get()
+        [Route("message/{name}")]
+        public string Get(string name)
         {
-            return greetingService.GetMessage();
+            logger.LogCritical($"Executing Get in {nameof(GreetingController)}");
+            return greetingService.GetMessage() + $", {name}";
         }
     }
 }
