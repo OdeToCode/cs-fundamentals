@@ -13045,11 +13045,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\github\\cs-fundamentals\\Employees\\Employees.Web\\Employees.Web.csproj",
+      "projectUniqueName": "C:\\github\\cs-fundamentals\\Employees\\Employees.Web\\Employees.Web.csproj",
       "projectName": "Employees.Web",
-      "projectPath": "c:\\github\\cs-fundamentals\\Employees\\Employees.Web\\Employees.Web.csproj",
+      "projectPath": "C:\\github\\cs-fundamentals\\Employees\\Employees.Web\\Employees.Web.csproj",
       "packagesPath": "C:\\Users\\scott\\.nuget\\packages\\",
-      "outputPath": "c:\\github\\cs-fundamentals\\Employees\\Employees.Web\\obj\\",
+      "outputPath": "C:\\github\\cs-fundamentals\\Employees\\Employees.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -18,7 +18,6 @@ namespace Employees.Web.Data
                         .HasIndex(e => new { e.FirstName, e.LastName });
         }
 
-
         public DbSet<Employee> Employees { get; set; }
     }
 }

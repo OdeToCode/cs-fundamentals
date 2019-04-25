@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Employees.Web.Data;
 using Employees.Web.Entities;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Employees.Web.Services
 {
@@ -13,6 +14,7 @@ namespace Employees.Web.Services
         public SqlEmployeeDataSource(EmployeesDbContext db)
         {
             this.db = db;
+           
         }
 
         public Employee Add(Employee newEmployee)
@@ -36,7 +38,9 @@ namespace Employees.Web.Services
 
         public Employee Get(int id)
         {
-            return db.Employees.Find(id);
+            var employee = db.Employees.Include(e => e.TimeCards)
+                               .FirstOrDefault(e => e.ID == id);
+            return employee;
         }
 
         public IQueryable<Employee> GetAllQuery()

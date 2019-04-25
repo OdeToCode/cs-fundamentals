@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace Employees.Web.Entities
 {
-    public class EmployeeEditModel
-    {
-        [Required, StringLength(255)]
-        public string FirstName { get; set; }
-    }
-
     public class Employee 
     {
         [Column("EmployeeID")]
@@ -29,6 +23,8 @@ namespace Employees.Web.Entities
         public string MiddleName { get; set; }
 
         public DateTime HireDate { get; set; }
+
+        public IList<TimeCard> TimeCards { get; set; }
     }
 
 }

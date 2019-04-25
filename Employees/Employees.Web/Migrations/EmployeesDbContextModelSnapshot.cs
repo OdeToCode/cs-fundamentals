@@ -40,7 +40,36 @@ namespace Employees.Web.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("FirstName", "LastName");
+
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Employees.Web.Entities.TimeCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Day");
+
+                    b.Property<int>("EmployeeId");
+
+                    b.Property<int>("Hours");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("TimeCard");
+                });
+
+            modelBuilder.Entity("Employees.Web.Entities.TimeCard", b =>
+                {
+                    b.HasOne("Employees.Web.Entities.Employee")
+                        .WithMany("TimeCards")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
