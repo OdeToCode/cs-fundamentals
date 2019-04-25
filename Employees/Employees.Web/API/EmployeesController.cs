@@ -24,7 +24,11 @@ namespace Employees.Web.API
         [HttpGet]
         public ActionResult<List<Employee>> Get()
         {
-            return Ok(db.GetAll());
+            var employees = db.GetAllQuery();
+
+            employees = employees.Where(e => !String.IsNullOrEmpty(e.FirstName));
+
+            return Ok(employees);
         }
 
         [HttpPut("{id}")]
@@ -62,7 +66,11 @@ namespace Employees.Web.API
             }
         }
 
-        [HttpDelete("{id}")]
+        // DELETE /api/employees
+        // PUT /api/employees/{id}/activestatus/0|1
+
+        // [HttpPut("{id:int}/activestatus/{status:int}")]
+        [HttpPost("{id:int}")]
         public ActionResult Delete(int id)
         {
             db.Delete(id);

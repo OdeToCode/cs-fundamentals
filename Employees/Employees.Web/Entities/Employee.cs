@@ -1,21 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Employees.Web.Entities
 {
+    public class EmployeeEditModel
+    {
+        [Required, StringLength(255)]
+        public string FirstName { get; set; }
+    }
+
     public class Employee 
     {
-        public int ID { get; set; }
+        [Column("EmployeeID")]
+        public int? ID { get; set; }
 
-        [Required, StringLength(255)]
+        [StringLength(255)]
+        [Column(TypeName = "varchar(255)")]
         public string FirstName { get; set; }
 
         [Required]
-        [StringLength(255)]
+        [StringLength(300)]
         public string LastName { get; set; }
+
+        public string MiddleName { get; set; }
 
         public DateTime HireDate { get; set; }
     }

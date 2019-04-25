@@ -61,5 +61,10 @@ namespace Employees.Web.Services
         {
             return 1;
         }
+
+        public IQueryable<Employee> GetAllQuery()
+        {
+            return employees.AsQueryable();
+        }
     }
 }
