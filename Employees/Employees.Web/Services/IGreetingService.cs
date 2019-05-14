@@ -18,7 +18,7 @@ namespace Employees.Web.Services
 
         public string GetMessage()
         {
-            return "**" + configuration["Greeting"];
+            return configuration["Greeting"];
         }
     }
 }

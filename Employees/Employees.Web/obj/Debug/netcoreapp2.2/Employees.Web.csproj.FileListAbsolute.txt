@@ -5,7 +5,6 @@ C:\github\cs-fundamentals\Employees\Employees.Web\bin\Debug\netcoreapp2.2\Employ
 C:\github\cs-fundamentals\Employees\Employees.Web\bin\Debug\netcoreapp2.2\Employees.Web.pdb
 C:\github\cs-fundamentals\Employees\Employees.Web\bin\Debug\netcoreapp2.2\Employees.Web.Views.dll
 C:\github\cs-fundamentals\Employees\Employees.Web\bin\Debug\netcoreapp2.2\Employees.Web.Views.pdb
-C:\github\cs-fundamentals\Employees\Employees.Web\obj\Debug\netcoreapp2.2\Employees.Web.csprojAssemblyReference.cache
 C:\github\cs-fundamentals\Employees\Employees.Web\obj\Debug\netcoreapp2.2\Employees.Web.csproj.CoreCompileInputs.cache
 C:\github\cs-fundamentals\Employees\Employees.Web\obj\Debug\netcoreapp2.2\Employees.Web.RazorAssemblyInfo.cache
 C:\github\cs-fundamentals\Employees\Employees.Web\obj\Debug\netcoreapp2.2\Employees.Web.RazorAssemblyInfo.cs

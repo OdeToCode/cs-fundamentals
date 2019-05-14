@@ -6,5 +6,32 @@
 
 <div class="text-center">
     <h1 class="display-4">@Model.Greeting</h1>
+    <div>
+        The total number of employees in the database is @Model.Employees.Count()
+    </div>
+    <div>
+        And the employees are:
+        <table>
+            <thead>
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr>
+                        <td>
+                            <frog>
+                                @employee.FirstName
+                            </frog>
+                        </td>
+                        <td>@employee.LastName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
