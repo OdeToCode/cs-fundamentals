@@ -8,94 +8,38 @@
     <h1 class="display-4">@Model.Greeting</h1>
 </div>
 
-<style>
-    .diamond-narrow {
-        width: 0;
-        height: 0;
-        border: 50px solid transparent;
-        border-bottom: 70px solid red;
-        position: relative;
-        top: -50px;
-    }
-
-        .diamond-narrow:after {
-            content: '';
-            position: absolute;
-            left: -50px;
-            top: 70px;
-            width: 0;
-            height: 0;
-            border: 50px solid transparent;
-            border-top: 70px solid red;
-        }
-
-        .diamond-narrow.green {
-            border-bottom: 70px solid green;
-        }
-
-            .diamond-narrow.green:after {
-                border-top: 70px solid green;
-            }
-
-    .gcontainer {
-        display: grid;
-        grid-template-columns: 150px 150px 150px;
-        grid-template-rows: 150px 150px;
-        grid-gap: 1rem;
-    }
-
-    </style>
-
 
 <div>
-
-    <div class="gcontainer">
-        <div class="item item2"><div class="diamond-narrow"></div></div>
-        <div class="item item2"><div class="diamond-narrow"></div></div>
-        <div class="item item3"><div class="diamond-narrow"></div></div>
-        <div class="item item4"><div class="diamond-narrow"></div></div>
-        <div class="item item5"><div class="diamond-narrow"></div></div>
-        <div class="item item6"><div class="diamond-narrow"></div></div>
-    </div>
-
-
-
     <h3>Employee Report</h3>
-    <table class="table">
-        <thead>
-            <tr>
+    
 
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var employee in Model.Employees)
-            {
-                <tr>
+   
+    @foreach (var employee in Model.Employees)
+    {
+        <div class="card m-5">
+            <div class="card-header text-danger">
+                @employee.ID
+            </div>
+            <div class="card-body">
+                @employee.LastName, @employee.FirstName since @employee.HireDate.Year
+            </div>
+            <div class="card-footer">
+                <a asp-page="/Employees/Detail"
+                   asp-route-employeeId="@employee.ID" class="btn btn-secondary">
+                    Details
+                </a>
+                <a asp-page="/Employees/Edit"
+                   asp-route-employeeId="@employee.ID" class="btn btn-secondary">
+                    Edit
+                </a>
+            </div>
+        </div>
+    }
 
-                    <td>
-                        @employee.FirstName
-                    </td>
 
-                    <td>
-                        @employee.LastName
-                    </td>
-                    <td>
-                        <a asp-page="/Employees/Detail"
-                           asp-route-employeeId="@employee.ID">
-                            Details
-                        </a>
-                        <a asp-page="/Employees/Edit"
-                           asp-route-employeeId="@employee.ID">
-                            Edit
-                        </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+
+                
+    
 </div>
 <div>
     The total number of employees is: <em>@Model.Employees.Count()</em>

@@ -27,6 +27,7 @@ namespace Employees.Web.Pages.Employees
             {
                 employeeDataSource.Update(employeeId, Employee);
                 employeeDataSource.Commit();
+                TempData["Message"] = $"You have saved the record for {Employee.FirstName}";
                 return RedirectToPage("/Index");
             }
             return Page();

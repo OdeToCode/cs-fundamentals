@@ -10,19 +10,29 @@
 
     <div asp-validation-summary="All"></div>
 
-    <label asp-for="@Model.Employee.FirstName"></label>
-    <input asp-for="@Model.Employee.FirstName" />
-    <span asp-validation-for="@Model.Employee.FirstName"></span>
+    <div class="form-group">
+        <label asp-for="@Model.Employee.FirstName"></label>
+        <input class="form-control form-control-lg"
+               asp-for="@Model.Employee.FirstName" />
+        <span asp-validation-for="@Model.Employee.FirstName"></span>
+    </div>
 
-    <label asp-for="@Model.Employee.LastName"></label>
-    <input asp-for="@Model.Employee.LastName" />
-    <span asp-validation-for="@Model.Employee.LastName"></span>
+    <div class="form-group">
+        <label asp-for="@Model.Employee.LastName"></label>
+        <input class="form-control" asp-for="@Model.Employee.LastName" />
+        <span asp-validation-for="@Model.Employee.LastName"></span>
+    </div>
 
-    <label asp-for="@Model.Employee.HireDate"></label>
-    <input asp-for="@Model.Employee.HireDate" />
-    <span asp-validation-for="@Model.Employee.HireDate"></span>
+    <div class="form-group">
+        <label asp-for="@Model.Employee.HireDate"></label>
+        <input class="form-control" asp-for="@Model.Employee.HireDate" />
+        <span asp-validation-for="@Model.Employee.HireDate"></span>
+    </div>
 
-    <input type="submit" name="Save" value="Save" />
+
+    <input type="submit" name="Save" value="Save" class="btn btn-primary" />
+    <a asp-page="/Index" class="btn btn-danger">Cancel</a>
+
 </form>
 
 @section Scripts {
