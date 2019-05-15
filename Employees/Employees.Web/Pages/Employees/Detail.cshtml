@@ -1,0 +1,18 @@
+﻿@page "{employeeId}"
+
+@model DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    First Name: @(Model?.Employee?.FirstName ?? "<empty>")
+</div>
+<div>
+    Last Name: @Model?.Employee?.LastName
+</div>
+<div>
+    Hired In : @Model?.Employee?.HireDate.Year
+</div>

@@ -1,0 +1,31 @@
+﻿@page "{employeeId}"
+@model Employees.Web.Pages.Employees.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form method="post">
+
+    <div asp-validation-summary="All"></div>
+
+    <label asp-for="@Model.Employee.FirstName"></label>
+    <input asp-for="@Model.Employee.FirstName" />
+    <span asp-validation-for="@Model.Employee.FirstName"></span>
+
+    <label asp-for="@Model.Employee.LastName"></label>
+    <input asp-for="@Model.Employee.LastName" />
+    <span asp-validation-for="@Model.Employee.LastName"></span>
+
+    <label asp-for="@Model.Employee.HireDate"></label>
+    <input asp-for="@Model.Employee.HireDate" />
+    <span asp-validation-for="@Model.Employee.HireDate"></span>
+
+    <input type="submit" name="Save" value="Save" />
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

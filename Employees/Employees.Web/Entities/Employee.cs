@@ -14,6 +14,7 @@ namespace Employees.Web.Entities
 
         [StringLength(255)]
         [Column(TypeName = "varchar(255)")]
+        [Display(Name ="First Name")]
         public string FirstName { get; set; }
 
         [Required]
