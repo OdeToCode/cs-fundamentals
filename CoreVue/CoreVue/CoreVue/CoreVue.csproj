@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>3.3</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="ServiceStack" Version="5.*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\CoreVue.ServiceInterface\CoreVue.ServiceInterface.csproj" />
+    <ProjectReference Include="..\CoreVue.ServiceModel\CoreVue.ServiceModel.csproj" />
+  </ItemGroup>
+
+  <Target Name="OnFirstUse" BeforeTargets="Build" Condition=" !Exists('wwwroot\dist') ">
+    <Exec Command="node --version" ContinueOnError="true"><Output TaskParameter="ExitCode" PropertyName="ErrorCode" /></Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+  </Target>
+
+</Project>
